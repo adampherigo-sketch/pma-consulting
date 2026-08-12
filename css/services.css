@@ -1,0 +1,1095 @@
+/* =========================================================
+   PMA CONSULTING — SERVICES PAGE
+   Matches the shared style.css design system
+   ========================================================= */
+
+/* ---------- Page Setup ---------- */
+
+html {
+  scroll-padding-top: 120px;
+}
+
+main {
+  overflow: hidden;
+}
+
+.services-hero,
+.service-overview,
+.event-planning,
+.administrative-consulting,
+.speaking-engagements,
+.partner-callout,
+.services-cta {
+  width: min(calc(100% - 48px), var(--container));
+  margin-inline: auto;
+}
+
+/* Make the Services contact link match the shared nav CTA. */
+
+.primary-nav .nav-contact-link {
+  margin-left: 8px;
+  padding-inline: 22px;
+  color: #101722;
+  background: var(--cream);
+  font-weight: 800;
+}
+
+.primary-nav .nav-contact-link:hover {
+  color: #07111c;
+  border-color: transparent;
+  background: #fff9e9;
+  transform: translateY(-1px);
+}
+
+/* ---------- Shared Services Typography ---------- */
+
+.services-hero h1,
+.service-overview h2,
+.event-planning h2,
+.administrative-consulting h2,
+.speaking-engagements h2,
+.partner-callout h2,
+.services-cta h2 {
+  color: var(--cream);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.service-overview h2,
+.event-planning h2,
+.administrative-consulting h2,
+.speaking-engagements h2,
+.services-cta h2 {
+  font-size: clamp(2.15rem, 4.5vw, 3.8rem);
+  line-height: 1.08;
+}
+
+.services-hero p,
+.service-overview p,
+.event-planning p,
+.administrative-consulting p,
+.speaking-engagements p,
+.partner-callout p,
+.services-cta p {
+  color: #b9c2cb;
+}
+
+/* ---------- Services Buttons ---------- */
+
+.services-hero .button-primary,
+.administrative-consulting .button-primary,
+.speaking-engagements .button-primary {
+  color: #07111c;
+  background: var(--rainbow);
+  box-shadow: 0 8px 26px rgba(111, 106, 255, 0.2);
+}
+
+.services-hero .button-primary:hover,
+.administrative-consulting .button-primary:hover,
+.speaking-engagements .button-primary:hover {
+  box-shadow: 0 12px 34px rgba(242, 77, 164, 0.28);
+}
+
+.services-hero .button-secondary {
+  color: var(--cream);
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.services-hero .button-secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.services-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+/* =========================================================
+   SERVICES HERO
+   ========================================================= */
+
+.services-hero {
+  min-height: 610px;
+  margin-top: 18px;
+  padding: clamp(38px, 5vw, 74px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(22, 216, 244, 0.08),
+      transparent 26rem
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(32, 216, 139, 0.05),
+      transparent 25rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(10, 23, 35, 0.8),
+      rgba(5, 14, 23, 0.34)
+    );
+  box-shadow: var(--shadow);
+}
+
+.services-hero > .container {
+  width: 100%;
+}
+
+.services-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+}
+
+.services-hero-content h1 {
+  max-width: 850px;
+  margin-bottom: 22px;
+  font-size: clamp(3.15rem, 5.5vw, 5.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.services-hero-intro {
+  max-width: 710px;
+  margin-bottom: 0;
+  color: #d3d8df;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.services-hero-card {
+  min-height: 440px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.008)
+    );
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+}
+
+.hero-card-label {
+  margin-bottom: 15px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.services-hero-card h2 {
+  margin-bottom: 20px;
+  color: var(--cream);
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.17;
+}
+
+.services-hero-card p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.services-hero-card p + p {
+  margin-top: 17px;
+}
+
+/* =========================================================
+   SERVICE OVERVIEW
+   ========================================================= */
+
+.service-overview {
+  padding-top: clamp(70px, 8vw, 112px);
+}
+
+.service-overview > .container {
+  width: 100%;
+}
+
+.section-heading-centered {
+  max-width: 880px;
+  margin: 0 auto 32px;
+  text-align: left;
+}
+
+.section-heading-centered h2 {
+  margin-bottom: 15px;
+}
+
+.section-heading-centered > p:last-child {
+  max-width: 750px;
+  margin-bottom: 0;
+  color: #b9c2cb;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.service-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.service-summary-card {
+  min-height: 350px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 28, 41, 0.88),
+      rgba(6, 16, 26, 0.72)
+    );
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.service-summary-card:hover {
+  border-color: rgba(22, 216, 244, 0.42);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.service-number {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 58px;
+  display: grid;
+  place-items: center;
+  color: #08121b;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.service-summary-card:nth-child(2) .service-number {
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue),
+      var(--violet),
+      var(--pink)
+    );
+}
+
+.service-summary-card:nth-child(3) .service-number {
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--orange),
+      var(--gold)
+    );
+}
+
+.service-summary-card h3 {
+  margin-bottom: 12px;
+  color: var(--cream);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.16;
+}
+
+.service-summary-card p {
+  color: #b9c2cb;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.service-summary-card .text-link {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* =========================================================
+   EVENT PLANNING
+   ========================================================= */
+
+.event-planning {
+  padding-top: clamp(80px, 9vw, 125px);
+}
+
+.event-planning > .container {
+  width: 100%;
+}
+
+.service-section-heading {
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
+  gap: 70px;
+  align-items: end;
+}
+
+.service-section-heading h2 {
+  max-width: 750px;
+  margin-bottom: 0;
+}
+
+.service-section-heading > p {
+  margin-bottom: 0;
+  color: #b9c2cb;
+  line-height: 1.7;
+}
+
+/* ---------- Pricing Cards ---------- */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.pricing-card {
+  position: relative;
+  min-height: 440px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 28, 41, 0.9),
+      rgba(6, 16, 26, 0.74)
+    );
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.pricing-card::before {
+  height: 6px;
+  position: absolute;
+  inset: 0 0 auto;
+  content: "";
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+}
+
+.pricing-card:nth-child(2)::before {
+  background:
+    linear-gradient(
+      90deg,
+      var(--violet),
+      var(--pink),
+      var(--orange)
+    );
+}
+
+.pricing-card:nth-child(3)::before {
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange),
+      var(--gold),
+      var(--green)
+    );
+}
+
+.pricing-card:hover {
+  border-color: rgba(22, 216, 244, 0.42);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+  transform: translateY(-4px);
+}
+
+.pricing-card-featured {
+  border-color: rgba(242, 77, 164, 0.45);
+  background:
+    radial-gradient(
+      circle at 100% 0,
+      rgba(242, 77, 164, 0.09),
+      transparent 18rem
+    ),
+    linear-gradient(
+      145deg,
+      rgba(16, 31, 45, 0.95),
+      rgba(6, 16, 26, 0.76)
+    );
+}
+
+.featured-label {
+  width: max-content;
+  margin: 2px 0 24px auto;
+  padding: 7px 12px;
+  color: var(--cream);
+  border: 1px solid rgba(242, 77, 164, 0.42);
+  border-radius: 999px;
+  background: rgba(242, 77, 164, 0.1);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pricing-card-header {
+  min-height: 92px;
+}
+
+.pricing-category {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--cyan);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pricing-card:nth-child(2) .pricing-category {
+  color: #ff79bf;
+}
+
+.pricing-card:nth-child(3) .pricing-category {
+  color: var(--gold);
+}
+
+.pricing-card-header h3 {
+  margin-bottom: 0;
+  color: var(--cream);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.price {
+  margin: 24px 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.price span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.price strong {
+  display: block;
+  color: var(--cream);
+  font-size: clamp(2.2rem, 4vw, 3.15rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.pricing-card > p {
+  color: #b9c2cb;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.pricing-link {
+  width: max-content;
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--cyan);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.pricing-card:nth-child(2) .pricing-link {
+  color: #ff79bf;
+}
+
+.pricing-card:nth-child(3) .pricing-link {
+  color: var(--gold);
+}
+
+.pricing-link:hover {
+  color: var(--cream);
+}
+
+.pricing-disclaimer {
+  max-width: 850px;
+  margin: 22px auto 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ---------- Event Components ---------- */
+
+.event-components {
+  margin-top: 34px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 50px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(
+      120deg,
+      rgba(13, 28, 41, 0.86),
+      rgba(6, 16, 26, 0.55)
+    );
+}
+
+.components-intro h3 {
+  margin-bottom: 15px;
+  color: var(--cream);
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.components-intro > p:last-child {
+  color: #b9c2cb;
+  line-height: 1.7;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
+}
+
+.component-item {
+  min-height: 52px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.component-item span {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  flex: 0 0 26px;
+  place-items: center;
+  color: #07111c;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.component-item p {
+  margin: 0;
+  color: #d1d8df;
+  font-size: 0.82rem;
+}
+
+/* =========================================================
+   ADMINISTRATIVE CONSULTING
+   ========================================================= */
+
+.administrative-consulting {
+  margin-top: clamp(80px, 9vw, 125px);
+  padding: clamp(34px, 5vw, 65px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      circle at 5% 10%,
+      rgba(148, 99, 255, 0.08),
+      transparent 26rem
+    ),
+    linear-gradient(
+      120deg,
+      rgba(13, 28, 41, 0.88),
+      rgba(6, 16, 26, 0.6)
+    );
+  box-shadow: var(--shadow);
+}
+
+.administrative-consulting > .container {
+  width: 100%;
+}
+
+.consultation-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.84fr) minmax(0, 1.16fr);
+  gap: clamp(45px, 7vw, 90px);
+  align-items: start;
+}
+
+.consultation-content h2 {
+  margin-bottom: 22px;
+}
+
+.consultation-content > p:not(.eyebrow) {
+  color: #b9c2cb;
+  line-height: 1.75;
+}
+
+.consultation-price {
+  margin: 28px 0;
+  padding: 21px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(3, 10, 18, 0.38);
+}
+
+.consultation-price span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.consultation-price strong {
+  display: block;
+  color: var(--cream);
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.consultation-services {
+  border-top: 1px solid var(--line-soft);
+}
+
+.consultation-item {
+  padding: 25px 0;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.consultation-item > span {
+  color: var(--violet);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.consultation-item:nth-child(2) > span {
+  color: var(--pink);
+}
+
+.consultation-item:nth-child(3) > span {
+  color: var(--orange);
+}
+
+.consultation-item:nth-child(4) > span {
+  color: var(--gold);
+}
+
+.consultation-item:nth-child(5) > span {
+  color: var(--green);
+}
+
+.consultation-item h3 {
+  margin-bottom: 7px;
+  color: var(--cream);
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.consultation-item p {
+  color: #b9c2cb;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   SPEAKING ENGAGEMENTS
+   ========================================================= */
+
+.speaking-engagements {
+  padding-top: clamp(80px, 9vw, 125px);
+}
+
+.speaking-engagements > .container {
+  width: 100%;
+}
+
+.speaking-layout {
+  padding: clamp(32px, 5vw, 60px);
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(45px, 7vw, 90px);
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(22, 216, 244, 0.07),
+      transparent 24rem
+    ),
+    linear-gradient(
+      145deg,
+      rgba(13, 28, 41, 0.88),
+      rgba(6, 16, 26, 0.7)
+    );
+}
+
+.speaking-content h2 {
+  margin-bottom: 22px;
+}
+
+.speaking-content > p:not(.eyebrow) {
+  color: #b9c2cb;
+  line-height: 1.75;
+}
+
+.speaking-price-note {
+  margin-top: 20px;
+  padding: 17px 19px;
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.speaking-content .button {
+  margin-top: 24px;
+}
+
+.speaking-topics {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(3, 10, 18, 0.34);
+}
+
+.speaking-topics h3 {
+  margin-bottom: 19px;
+  color: var(--cream);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.speaking-topics ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.speaking-topics li {
+  padding: 17px 0;
+  display: grid;
+  grid-template-columns: 37px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  color: #d1d8df;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.88rem;
+}
+
+.speaking-topics li:first-child {
+  border-top: 1px solid var(--line-soft);
+}
+
+.speaking-topics li span {
+  color: var(--cyan);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* =========================================================
+   PARTNER CALLOUT
+   ========================================================= */
+
+.partner-callout {
+  margin-top: 34px;
+  padding: 34px 46px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  color: var(--white);
+  background: var(--rainbow);
+}
+
+.partner-callout > .container {
+  width: 100%;
+}
+
+.partner-callout-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.partner-callout .eyebrow {
+  color: rgba(7, 17, 28, 0.76);
+}
+
+.partner-callout h2 {
+  margin-bottom: 0;
+  color: var(--white);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.partner-callout p {
+  margin-bottom: 0;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.services-cta {
+  margin-top: 18px;
+  margin-bottom: 16px;
+  padding: clamp(60px, 8vw, 105px) 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(111, 106, 255, 0.12),
+      transparent 30rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(10, 23, 35, 0.86),
+      rgba(5, 14, 23, 0.55)
+    );
+  text-align: center;
+}
+
+.services-cta > .container {
+  width: 100%;
+}
+
+.services-cta-content {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.services-cta h2 {
+  margin-bottom: 18px;
+}
+
+.services-cta-content > p:not(.eyebrow) {
+  max-width: 660px;
+  margin: 0 auto;
+  color: #b9c2cb;
+  line-height: 1.75;
+}
+
+.services-cta .button-light {
+  min-height: 50px;
+  margin-top: 28px;
+  padding: 0 28px;
+  color: #07111c;
+  background: var(--cream);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+}
+
+.services-cta .button-light:hover {
+  background: #fff9e9;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1180px) {
+  .services-hero-layout {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 42px;
+  }
+
+  .service-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-summary-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 280px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-hero,
+  .service-overview,
+  .event-planning,
+  .administrative-consulting,
+  .speaking-engagements,
+  .partner-callout,
+  .services-cta {
+    width: min(calc(100% - 30px), var(--container));
+  }
+
+  .services-hero-layout,
+  .service-section-heading,
+  .consultation-layout,
+  .speaking-layout,
+  .partner-callout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .services-hero {
+    padding: 44px;
+  }
+
+  .services-hero-card {
+    min-height: auto;
+  }
+
+  .service-section-heading {
+    gap: 20px;
+  }
+
+  .event-components {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .consultation-layout,
+  .speaking-layout {
+    gap: 42px;
+  }
+
+  .partner-callout-layout {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-hero,
+  .service-overview,
+  .event-planning,
+  .administrative-consulting,
+  .speaking-engagements,
+  .partner-callout,
+  .services-cta {
+    width: min(calc(100% - 22px), var(--container));
+  }
+
+  .services-hero {
+    min-height: auto;
+    margin-top: 12px;
+    padding: 38px 24px 24px;
+    border-radius: 22px;
+  }
+
+  .services-hero-content h1 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .services-hero-intro {
+    font-size: 0.95rem;
+  }
+
+  .services-hero-actions {
+    display: grid;
+  }
+
+  .services-hero-actions .button {
+    width: 100%;
+  }
+
+  .services-hero-card {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .service-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-summary-card,
+  .service-summary-card:last-child {
+    grid-column: auto;
+    min-height: auto;
+  }
+
+  .service-number {
+    margin-bottom: 42px;
+  }
+
+  .service-overview h2,
+  .event-planning h2,
+  .administrative-consulting h2,
+  .speaking-engagements h2,
+  .services-cta h2 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .pricing-card {
+    min-height: auto;
+    padding: 25px;
+  }
+
+  .pricing-card-header {
+    min-height: auto;
+  }
+
+  .event-components {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .administrative-consulting {
+    padding: 30px 24px;
+    border-radius: 22px;
+  }
+
+  .consultation-item {
+    grid-template-columns: 35px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .speaking-layout {
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+
+  .speaking-topics {
+    padding: 22px;
+  }
+
+  .partner-callout {
+    padding: 30px 24px;
+  }
+
+  .services-cta {
+    padding: 60px 24px;
+    border-radius: 22px;
+  }
+
+  .services-cta .button {
+    width: 100%;
+  }
+
+  .primary-nav .nav-contact-link {
+    margin: 7px 0 0;
+  }
+}
