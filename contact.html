@@ -792,6 +792,15 @@
               Send My Inquiry
             </button>
 
+            <div
+              class="form-status"
+              id="contact-form-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              tabindex="-1"
+            ></div>
+
             <p class="privacy-note">
               <svg
                 viewBox="0 0 24 24"
@@ -844,7 +853,14 @@
         <h2>Connect</h2>
         <a href="mailto:info@pmaconsulting.co">info@pmaconsulting.co</a>
         <span>Washington, D.C.</span>
-        <a href="https://www.instagram.com/pma_consulting_llc/" target="_blank" rel="noopener noreferrer">@pma_consulting_llc</a>
+        <a class="social-link" href="https://www.instagram.com/pma_consulting_llc/" target="_blank" rel="noopener noreferrer">
+          <svg class="social-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+            <path d="M16 11.37a4 4 0 1 1-7.78 1.26A4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span>@pma_consulting_llc</span>
+        </a>
       </div>
     </div>
 
@@ -856,6 +872,9 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.querySelector("#contact-form");
+      const submitButton = form.querySelector(".submit-button");
+      const formStatus = document.querySelector("#contact-form-status");
+      let isSubmitting = false;
       const contactChoices = document.querySelectorAll(
         'input[name="preferred_contact"]'
       );
@@ -962,10 +981,130 @@
         );
       }
 
-      form.addEventListener("submit", (event) => {
+      const getValue = (name) => form.elements[name]?.value.trim() || "";
+
+      const getValues = (name) => Array.from(
+        form.querySelectorAll(`input[name="${name}"]:checked`)
+      ).map((input) => input.value);
+
+      const buildPayload = () => {
+        const projectType = getValue("project_type");
+
+        return {
+          first_name: getValue("first_name"),
+          last_name: getValue("last_name"),
+          email: getValue("email"),
+          phone: getValue("phone"),
+          preferred_contact: getValue("preferred_contact"),
+          callback_date_one: getValue("callback_date_one"),
+          callback_from_one: getValue("callback_from_one"),
+          callback_to_one: getValue("callback_to_one"),
+          callback_date_two: getValue("callback_date_two"),
+          callback_from_two: getValue("callback_from_two"),
+          callback_to_two: getValue("callback_to_two"),
+          project_type: projectType,
+          event_size: projectType === "Event Planning"
+            ? getValue("event_size")
+            : "",
+          "administrative_services[]": projectType === "Administrative and Process Consultation"
+            ? getValues("administrative_services[]")
+            : [],
+          "speaking_topics[]": projectType === "Speaking Engagement"
+            ? getValues("speaking_topics[]")
+            : [],
+          project_message: getValue("project_message"),
+          website: getValue("website")
+        };
+      };
+
+      const setStatus = (message, type = "") => {
+        formStatus.textContent = message;
+        formStatus.className = `form-status${type ? ` is-${type}` : ""}`;
+      };
+
+      const restoreFormState = () => {
+        const contact = form.querySelector(
+          'input[name="preferred_contact"]:checked'
+        );
+        const project = form.querySelector(
+          "[data-project-choice]:checked"
+        );
+
+        if (contact) {
+          setContactState(contact.value);
+        }
+
+        if (project) {
+          setConditionalSection(project.dataset.projectChoice);
+        }
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (isSubmitting) {
+          return;
+        }
+
         if (!form.checkValidity()) {
-          event.preventDefault();
           form.reportValidity();
+          return;
+        }
+
+        isSubmitting = true;
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+        setStatus("Sending your inquiry…");
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 14000);
+
+        try {
+          const response = await fetch("/.netlify/functions/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(buildPayload()),
+            signal: controller.signal
+          });
+          let result = null;
+
+          try {
+            result = await response.json();
+          } catch {
+            result = null;
+          }
+
+          if (response.ok && result?.ok === true) {
+            form.reset();
+            restoreFormState();
+            setStatus(
+              "Thanks for reaching out. Your inquiry has been sent to PMA Consulting.",
+              "success"
+            );
+            formStatus.focus();
+            submitButton.disabled = true;
+            return;
+          }
+
+          setStatus(
+            "We couldn't send your inquiry right now. Please try again.",
+            "error"
+          );
+        } catch {
+          setStatus(
+            "We couldn't send your inquiry right now. Please try again.",
+            "error"
+          );
+        } finally {
+          clearTimeout(timeout);
+          isSubmitting = false;
+
+          if (!formStatus.classList.contains("is-success")) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send My Inquiry";
+          }
         }
       });
 
