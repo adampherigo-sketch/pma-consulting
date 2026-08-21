@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111c">
 
   <meta
     name="description"
     content="Contact PMA Consulting about event planning, administrative consultation, process development, or speaking engagements."
   >
+
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | PMA Consulting">
+  <meta property="og:description" content="Contact PMA Consulting about event planning, administrative consultation, process development, or speaking engagements.">
 
   <title>Contact | PMA Consulting</title>
 
@@ -28,7 +30,8 @@
   >
 
   <!-- Page Styles -->
-  <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
 
   <!-- Shared Navigation -->
   <script src="js/nav.js" defer></script>
@@ -62,7 +65,7 @@
 
         <p class="contact-hero-intro">
           We’d love to hear about your goals and explore how we can
-          help create meaningful, inclusive experiences together.
+          help plan inclusive events and strengthen the systems behind them.
         </p>
       </div>
 
@@ -188,8 +191,7 @@
 
           <p>
             Complete the form below, and a member of the PMA Consulting
-            team will follow up during one of your preferred contact
-            windows.
+            team will follow up using your preferred contact method.
           </p>
         </div>
 
@@ -198,6 +200,20 @@
           id="contact-form"
           method="post"
         >
+          <!-- Production form endpoint still needs client confirmation. -->
+          <div class="sr-only" aria-hidden="true" inert>
+            <label class="sr-only" for="website">Website</label>
+            <input
+              class="sr-only"
+              id="website"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+              value=""
+            >
+          </div>
+
           <!-- Contact Information -->
           <fieldset class="form-section">
             <legend>Your contact information</legend>
@@ -251,7 +267,11 @@
               <div class="form-group">
                 <label for="phone">
                   Best Contact Number
-                  <span aria-hidden="true">*</span>
+                  <span
+                    data-phone-required-indicator
+                    aria-hidden="true"
+                    hidden
+                  >*</span>
                 </label>
 
                 <input
@@ -261,7 +281,7 @@
                   autocomplete="tel"
                   inputmode="tel"
                   placeholder="(000) 000-0000"
-                  required
+                  aria-required="false"
                 >
               </div>
             </div>
@@ -332,16 +352,22 @@
                   <strong>Phone</strong>
                 </span>
               </label>
+
             </div>
           </fieldset>
 
           <!-- Callback Windows -->
-          <fieldset class="form-section">
+          <fieldset
+            class="form-section"
+            id="callback-section"
+            aria-hidden="true"
+            hidden
+          >
             <legend>Your best callback windows</legend>
 
             <p class="field-help">
-              Please provide two dates and time ranges when you are
-              generally available.
+              Provide one preferred date and time range. A second option
+              is optional.
             </p>
 
             <div class="callback-windows">
@@ -400,42 +426,36 @@
                   <div class="form-group">
                     <label for="callback-date-two">
                       Date
-                      <span aria-hidden="true">*</span>
                     </label>
 
                     <input
                       id="callback-date-two"
                       name="callback_date_two"
                       type="date"
-                      required
                     >
                   </div>
 
                   <div class="form-group">
                     <label for="callback-from-two">
                       From
-                      <span aria-hidden="true">*</span>
                     </label>
 
                     <input
                       id="callback-from-two"
                       name="callback_from_two"
                       type="time"
-                      required
                     >
                   </div>
 
                   <div class="form-group">
                     <label for="callback-to-two">
                       To
-                      <span aria-hidden="true">*</span>
                     </label>
 
                     <input
                       id="callback-to-two"
                       name="callback_to_two"
                       type="time"
-                      required
                     >
                   </div>
                 </div>
@@ -558,6 +578,32 @@
                   <small>
                     Professional expertise and related fields
                   </small>
+                </span>
+              </label>
+
+              <label class="choice-card service-choice">
+                <input
+                  type="radio"
+                  name="project_type"
+                  value="General Inquiry / Not Sure Yet"
+                  data-project-choice="general"
+                >
+
+                <span class="choice-card-content">
+                  <span class="choice-indicator"></span>
+
+                  <svg
+                    class="choice-icon cyan"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-1 .8-1.7 1.2-1.7 2.7"></path>
+                    <path d="M12 17h.01"></path>
+                  </svg>
+
+                  <strong>General Inquiry / Not Sure Yet</strong>
                 </span>
               </label>
             </div>
@@ -725,7 +771,7 @@
           <!-- Project Details -->
           <div class="form-group project-details">
             <label for="project-message">
-              Tell us about your project
+              Tell us about your project or inquiry
               <span aria-hidden="true">*</span>
             </label>
 
@@ -773,101 +819,101 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-main container">
-      <div class="footer-brand">
-        <a
-          class="brand"
-          href="index.html"
-          aria-label="PMA Consulting home"
-        >
-          <span class="brand-mark" aria-hidden="true">
-            <img src="images/logo-2.png" alt="">
-          </span>
+  <footer class="site-footer container">
+    <div class="footer-main">
+      <a class="brand footer-brand" href="index.html" aria-label="PMA Consulting home">
+        <span class="brand-mark" aria-hidden="true"><img src="images/logo.png" alt=""></span>
+        <span class="brand-copy"><strong>PMA Consulting</strong><small>Inclusive Event Strategy</small></span>
+      </a>
 
-          <span class="brand-copy">
-            <strong>PMA Consulting</strong>
-            <small>Inclusive Event Strategy</small>
-          </span>
-        </a>
-
-        <p class="footer-description">
-          Inclusive event strategy and consulting that brings people
-          together with purpose.
-        </p>
-      </div>
-
-      <nav
-        class="footer-column"
-        aria-label="Explore"
-      >
+      <div class="footer-column">
         <h2>Explore</h2>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="events.html">Events</a>
+        <a href="projects.html">Projects</a>
         <a href="partners.html">Partners</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      </div>
 
-      <nav
-        class="footer-column"
-        aria-label="Services"
-      >
-        <h2>Services</h2>
-        <a href="services.html#event-planning">
-          Event Planning
-        </a>
-        <a href="services.html#administrative-consultation">
-          Administrative Consultation
-        </a>
-        <a href="services.html#speaking-engagements">
-          Speaking Engagements
-        </a>
-      </nav>
-
-      <nav
-        class="footer-column"
-        aria-label="Resources"
-      >
+      <div class="footer-column">
         <h2>Resources</h2>
         <a href="events.html">Events</a>
-        <a href="partners.html">Partners</a>
-        <a href="contact.html">Start a Project</a>
-      </nav>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </div>
 
-      <div class="footer-column footer-contact">
+      <div class="footer-column">
         <h2>Connect</h2>
-
-        <a href="mailto:hello@pmaconsulting.co">
-          hello@pmaconsulting.co
-        </a>
-
-        <a href="tel:+14155550198">
-          (415) 555-0198
-        </a>
-
-        <span>
-          Serving clients nationwide and beyond.
-        </span>
+        <a href="mailto:info@pmaconsulting.co">info@pmaconsulting.co</a>
+        <span>Washington, D.C.</span>
+        <a href="https://www.instagram.com/pma_consulting_llc/" target="_blank" rel="noopener noreferrer">@pma_consulting_llc</a>
       </div>
     </div>
 
-    <div class="footer-bottom container">
-      <p>
-        &copy; <span id="current-year"></span> PMA Consulting.
-        All rights reserved.
-      </p>
-
-      <div>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-      </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> PMA Consulting, LLC. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("#contact-form");
+      const contactChoices = document.querySelectorAll(
+        'input[name="preferred_contact"]'
+      );
+      const phoneInput = document.querySelector("#phone");
+      const phoneRequiredIndicator = document.querySelector(
+        "[data-phone-required-indicator]"
+      );
+      const callbackSection = document.querySelector(
+        "#callback-section"
+      );
+      const callbackInputs = callbackSection.querySelectorAll(
+        "input"
+      );
+      const firstCallbackInputs = [
+        document.querySelector("#callback-date-one"),
+        document.querySelector("#callback-from-one"),
+        document.querySelector("#callback-to-one")
+      ];
+
+      const setContactState = (preferredContact) => {
+        const wantsPhone = preferredContact === "Phone";
+
+        phoneInput.required = wantsPhone;
+        phoneInput.setAttribute("aria-required", String(wantsPhone));
+        phoneRequiredIndicator.hidden = !wantsPhone;
+
+        callbackSection.hidden = !wantsPhone;
+        callbackSection.setAttribute(
+          "aria-hidden",
+          String(!wantsPhone)
+        );
+
+        callbackInputs.forEach((input) => {
+          input.disabled = !wantsPhone;
+          input.required = false;
+        });
+
+        firstCallbackInputs.forEach((input) => {
+          input.required = wantsPhone;
+        });
+      };
+
+      contactChoices.forEach((choice) => {
+        choice.addEventListener("change", () => {
+          if (choice.checked) {
+            setContactState(choice.value);
+          }
+        });
+      });
+
+      const selectedContact = document.querySelector(
+        'input[name="preferred_contact"]:checked'
+      );
+
+      if (selectedContact) {
+        setContactState(selectedContact.value);
+      }
+
       const projectChoices = document.querySelectorAll(
         "[data-project-choice]"
       );
@@ -915,6 +961,13 @@
           selectedProject.dataset.projectChoice
         );
       }
+
+      form.addEventListener("submit", (event) => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          form.reportValidity();
+        }
+      });
 
       const dateInputs = document.querySelectorAll(
         'input[type="date"]'

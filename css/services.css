@@ -24,23 +24,6 @@ main {
   margin-inline: auto;
 }
 
-/* Make the Services contact link match the shared nav CTA. */
-
-.primary-nav .nav-contact-link {
-  margin-left: 8px;
-  padding-inline: 22px;
-  color: #101722;
-  background: var(--cream);
-  font-weight: 800;
-}
-
-.primary-nav .nav-contact-link:hover {
-  color: #07111c;
-  border-color: transparent;
-  background: #fff9e9;
-  transform: translateY(-1px);
-}
-
 /* ---------- Shared Services Typography ---------- */
 
 .services-hero h1,
@@ -1089,7 +1072,4 @@ main {
     width: 100%;
   }
 
-  .primary-nav .nav-contact-link {
-    margin: 7px 0 0;
-  }
 }

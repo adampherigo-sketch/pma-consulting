@@ -25,7 +25,7 @@
 }
 
 .about-page .container {
-  width: min(1180px, calc(100% - 3rem));
+  width: min(calc(100% - 48px), var(--container));
   margin-inline: auto;
 }
 
@@ -583,7 +583,7 @@
 @media (max-width: 560px) {
   .about-page .section-pad { padding: 4rem 0; }
   .about-page h1 { font-size: clamp(2.75rem, 15vw, 4.1rem); }
-  .about-page h2 { font-size: clamp(2rem, 11vw, 3rem); }
+  .about-page main h2 { font-size: clamp(2rem, 11vw, 3rem); }
 
   .about-hero-visual {
     width: calc(100% - 1rem);

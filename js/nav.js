@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const primaryNav = header.querySelector(".primary-nav");
   const navigationLinks = primaryNav.querySelectorAll("a");
 
-  // Mark the link for the current page.
   const currentPage =
     window.location.pathname.split("/").pop() || "index.html";
 
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Open or close the mobile navigation.
   navToggle.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
 
@@ -79,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     primaryNav.classList.toggle("is-open", !isOpen);
   });
 
-  // Close the navigation after selecting a link.
   navigationLinks.forEach((link) => {
     link.addEventListener("click", () => {
       navToggle.setAttribute("aria-expanded", "false");
@@ -89,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Close mobile navigation when the screen becomes wider.
   window.addEventListener("resize", () => {
     if (window.innerWidth > 860) {
       navToggle.setAttribute("aria-expanded", "false");

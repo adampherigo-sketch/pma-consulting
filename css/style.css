@@ -230,25 +230,39 @@ p:last-child {
   transition: color var(--transition), border-color var(--transition), background var(--transition), transform var(--transition);
 }
 
-.primary-nav a:hover,
-.primary-nav a.active {
+.primary-nav a:hover {
   border-color: var(--line-soft);
   background: rgba(255, 255, 255, 0.04);
 }
 
-.primary-nav .nav-cta {
+.primary-nav .nav-contact-link {
   margin-left: 8px;
-  padding-inline: 22px;
-  color: #101722;
-  background: var(--cream);
-  font-weight: 800;
+  color: var(--cream);
+  background: transparent;
 }
 
-.primary-nav .nav-cta:hover {
-  color: #07111c;
-  border-color: transparent;
-  background: #fff9e9;
-  transform: translateY(-1px);
+.primary-nav a.active {
+  color: var(--cream);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(
+      rgba(13, 28, 41, 0.96),
+      rgba(7, 17, 27, 0.96)
+    ) padding-box,
+    var(--rainbow) border-box;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.16),
+    0 0 18px rgba(148, 99, 255, 0.10);
+}
+
+.primary-nav a.active:hover {
+  color: var(--cream);
+  background:
+    linear-gradient(
+      rgba(16, 34, 49, 0.98),
+      rgba(8, 20, 31, 0.98)
+    ) padding-box,
+    var(--rainbow) border-box;
 }
 
 .nav-toggle {
@@ -828,24 +842,24 @@ p:last-child {
 .footer-main {
   padding: 8px 0 28px;
   display: grid;
-  grid-template-columns: 1.4fr repeat(3, 0.72fr) 1.2fr;
+  grid-template-columns: 1.4fr repeat(3, 0.72fr);
   gap: 34px;
 }
 
 .footer-brand {
   align-self: start;
+  min-width: 0;
 }
 
-.footer-column,
-.newsletter {
+.footer-column {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 7px;
 }
 
-.footer-column h2,
-.newsletter h2 {
+.footer-column h2 {
   margin-bottom: 3px;
   color: var(--cream);
   font-size: 0.78rem;
@@ -853,52 +867,13 @@ p:last-child {
 }
 
 .footer-column a,
-.footer-column span,
-.newsletter p {
+.footer-column span {
   color: var(--muted);
   font-size: 0.72rem;
 }
 
 .footer-column a:hover {
   color: var(--cyan);
-}
-
-.newsletter {
-  margin: 0;
-}
-
-.newsletter p {
-  max-width: 230px;
-  margin-bottom: 4px;
-}
-
-.email-field {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 46px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.email-field input {
-  min-width: 0;
-  padding: 0 15px;
-  color: var(--cream);
-  border: 0;
-  outline: 0;
-  background: transparent;
-  font-size: 0.72rem;
-}
-
-.email-field button {
-  height: 42px;
-  color: #07111c;
-  border: 0;
-  background: var(--cyan);
-  font-weight: 900;
-  cursor: pointer;
 }
 
 .footer-bottom {
@@ -929,7 +904,7 @@ p:last-child {
 @media (max-width: 1180px) {
   .brand-copy small { display: none; }
   .primary-nav a { padding-inline: 11px; font-size: 0.78rem; }
-  .primary-nav .nav-cta { padding-inline: 17px; }
+  .primary-nav .nav-contact-link { padding-inline: 17px; }
   .hero { grid-template-columns: 1.08fr 0.92fr; gap: 42px; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card { min-height: 300px; }
@@ -937,7 +912,6 @@ p:last-child {
   .event-grid { grid-template-columns: 1fr; }
   .event-card { min-height: auto; }
   .footer-main { grid-template-columns: 1.3fr repeat(3, 0.7fr); }
-  .newsletter { grid-column: 1 / -1; max-width: 430px; }
 }
 
 @media (max-width: 900px) {
@@ -967,9 +941,14 @@ p:last-child {
     transform: translateY(-10px);
     transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
   }
-  .primary-nav.is-open { visibility: visible; opacity: 1; transform: translateY(0); }
+  .primary-nav.is-open,
+  .site-header.nav-open .primary-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
   .primary-nav a { padding: 12px 16px; font-size: 0.9rem; }
-  .primary-nav .nav-cta { margin: 7px 0 0; }
+  .primary-nav .nav-contact-link { margin: 7px 0 0; }
   .hero { padding: 44px; grid-template-columns: 1fr; }
   .hero-feature { min-height: 460px; }
   .hero-feature-image { min-height: 280px; }
@@ -1013,8 +992,8 @@ p:last-child {
   .cta-banner { padding: 30px 24px; display: grid; gap: 22px; }
   .button-dark { min-width: 0; }
   .footer-main { grid-template-columns: repeat(2, 1fr); }
-  .footer-brand,
-  .newsletter { grid-column: 1 / -1; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-column:last-child { grid-column: 1 / -1; }
   .footer-bottom { align-items: flex-start; flex-direction: column; }
 }
 
@@ -1028,7 +1007,7 @@ p:last-child {
   .event-card time { width: 100%; height: 74px; flex-direction: row; gap: 8px; }
   .footer-main { grid-template-columns: 1fr; }
   .footer-brand,
-  .newsletter { grid-column: auto; }
+  .footer-column:last-child { grid-column: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

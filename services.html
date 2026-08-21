@@ -2,29 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111c">
 
   <meta
     name="description"
     content="Explore event planning, administrative consulting, process development, and speaking services from PMA Consulting."
   >
 
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Services | PMA Consulting">
+  <meta property="og:description" content="Explore event planning, administrative consulting, process development, and speaking services from PMA Consulting.">
+
   <title>Services | PMA Consulting</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/services.css">
-<script src="js/nav.js" defer></script>
+  <link rel="stylesheet" href="css/services.css">
+  <script src="js/nav.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
   <!-- Shared navigation is inserted here by nav.js -->
   <header class="site-header" data-site-header></header>
 
-  <main>
+  <main id="main-content">
     <!-- Services Hero -->
     <section class="services-hero">
       <div class="container services-hero-layout">
@@ -32,14 +42,14 @@
           <p class="eyebrow">PMA Consulting Services</p>
 
           <h1>
-            Thoughtful strategy for events, organizations, and communities.
+            Practical strategy for events, organizations, and communities.
           </h1>
 
           <p class="services-hero-intro">
             PMA Consulting provides event planning, operational consultation,
             and speaking services designed around each client’s goals. We bring
             the right people, resources, and processes together to create
-            meaningful experiences and sustainable outcomes.
+            well-run programs and sustainable outcomes.
           </p>
 
           <div class="services-hero-actions">
@@ -56,7 +66,7 @@
         <aside class="services-hero-card">
           <span class="hero-card-label">Customized Support</span>
 
-          <h2>Every project begins with collaboration.</h2>
+          <h2>Every engagement starts with a clear plan.</h2>
 
           <p>
             Overall consulting and coordination pricing is determined by the
@@ -124,7 +134,7 @@
           <div>
             <p class="eyebrow">Event Planning & Coordination</p>
 
-            <h2>Bringing every part of your event together</h2>
+            <h2>Coordinating the details that keep your event moving</h2>
           </div>
 
           <p>
@@ -212,7 +222,7 @@
           <div class="components-intro">
             <p class="eyebrow">Event Components</p>
 
-            <h3>Support for the details that shape the experience</h3>
+            <h3>Support for the details that shape the event</h3>
 
             <p>
               Services may include the coordination of the following components
@@ -403,7 +413,7 @@
           <div class="speaking-content">
             <p class="eyebrow">Speaking Engagements</p>
 
-            <h2>Experienced perspectives for meaningful conversations</h2>
+            <h2>Experienced perspectives for practical conversations</h2>
 
             <p>
               Speaking engagements are available for conferences, professional
@@ -491,57 +501,37 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-layout">
-      <div class="footer-brand">
-        <a
-          class="brand"
-          href="index.html"
-          aria-label="PMA Consulting home"
-        >
-          <span class="brand-mark" aria-hidden="true">
-            <img src="images/logo-2.png" alt="">
-          </span>
+  <footer class="site-footer container">
+    <div class="footer-main">
+      <a class="brand footer-brand" href="index.html" aria-label="PMA Consulting home">
+        <span class="brand-mark" aria-hidden="true"><img src="images/logo.png" alt=""></span>
+        <span class="brand-copy"><strong>PMA Consulting</strong><small>Inclusive Event Strategy</small></span>
+      </a>
 
-          <span class="brand-copy">
-            <strong>PMA Consulting</strong>
-            <small>Inclusive Event Strategy</small>
-          </span>
-        </a>
-
-        <p>
-          Strategic event planning and organizational support built through
-          collaboration, inclusion, and community.
-        </p>
-      </div>
-
-      <div class="footer-links">
+      <div class="footer-column">
         <h2>Explore</h2>
-
-        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html" aria-current="page">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="partners.html">Partners</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Resources</h2>
         <a href="events.html">Events</a>
         <a href="contact.html">Contact</a>
       </div>
 
-      <div class="footer-contact">
-        <h2>Let’s Work Together</h2>
-
-        <p>
-          Ready to discuss your next event, consultation, or speaking
-          engagement?
-        </p>
-
-        <a href="contact.html">Start a conversation →</a>
+      <div class="footer-column">
+        <h2>Connect</h2>
+        <a href="mailto:info@pmaconsulting.co">info@pmaconsulting.co</a>
+        <span>Washington, D.C.</span>
+        <a href="https://www.instagram.com/pma_consulting_llc/" target="_blank" rel="noopener noreferrer">@pma_consulting_llc</a>
       </div>
     </div>
 
-    <div class="container footer-bottom">
-      <p>
-        &copy; <span id="current-year"></span> PMA Consulting.
-        All rights reserved.
-      </p>
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2026</span> PMA Consulting, LLC. All rights reserved.</p>
     </div>
   </footer>
 
