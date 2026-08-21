@@ -60,9 +60,13 @@ The Contact Function already returns `Cache-Control: no-store`.
 
 ## Content Security Policy
 
-A strong CSP is not enabled yet. `contact.html` currently contains an inline form controller, and the site uses Google Fonts from `fonts.googleapis.com` and `fonts.gstatic.com`. Adding a strict `script-src 'self'` policy now would block the Contact controller; adding `unsafe-inline` would weaken the policy.
+An enforced CSP is configured in `_headers` and copied into `dist/_headers` during the build:
 
-Recommended next step: move the Contact controller to `js/contact.js`, then introduce and test a policy using `script-src 'self'`, `style-src 'self' 'unsafe-inline'` only if required by the current markup, `font-src 'self' https://fonts.gstatic.com`, `style-src` access to `https://fonts.googleapis.com`, `img-src 'self' data:`, `connect-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`, and `frame-ancestors 'none'`. Do not add `api.resend.com` to browser `connect-src`; Resend is server-side only. Do not use `unsafe-eval` or wildcard origins.
+```text
+default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+```
+
+The Contact controller now loads from `js/contact.js`, so `script-src 'self'` does not require `unsafe-inline`. Google Fonts are allowed only from their current stylesheet and font hosts. Contact fetches only the same-origin Function endpoint; Resend remains server-side and is not in browser `connect-src`. No `unsafe-eval` or wildcard source is used.
 
 ## Rate limiting
 

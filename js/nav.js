@@ -48,6 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     </nav>
   `;
 
+  document.querySelectorAll("#current-year, [data-current-year]").forEach(
+    (element) => {
+      element.textContent = new Date().getFullYear();
+    }
+  );
+
   const navToggle = header.querySelector(".nav-toggle");
   const primaryNav = header.querySelector(".primary-nav");
   const navigationLinks = primaryNav.querySelectorAll("a");
